@@ -131,7 +131,7 @@
 
     /* Hero section - full responsive height */
     .hero {
-      min-height: 85vh;
+      min-height: 70vh;
       background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -393,6 +393,7 @@
       section { padding: 3rem 1.5rem; }
       .property-detail-grid { gap: 1.5rem; }
       .nav-container { padding: 0.8rem 1.2rem; }
+      margin-bottom: 0;
     }
 
     @media (max-width: 880px) {
@@ -540,6 +541,144 @@
     input, select, textarea {
       font-size: 16px; /* prevents zoom on mobile */
     }
+
+    .hero {
+  min-height: 85vh; /* Change this to: */
+  min-height: 70vh; /* or use: */
+  min-height: auto;
+}
+
+/* OR add this to remove bottom padding/margin */
+section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* OR the main container */
+#app-root {
+  min-height: auto;
+  overflow: visible;
+}
+
+/* Most likely fix - adjust hero section */
+.hero {
+  min-height: 70vh; /* Reduce from 85vh */
+  max-height: 90vh;
+}
+
+/* =========================
+   FINAL RESPONSIVENESS BOOST
+   (NO DESIGN CHANGE)
+   ========================= */
+
+/* Prevent horizontal scroll issues */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Improve button tap areas on mobile */
+button, .btn, a {
+  min-height: 44px;
+}
+
+/* Fix flex overflow issues globally */
+* {
+  min-width: 0;
+}
+
+/* Ultra small devices (320px and below) */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .filter-bar {
+    padding: 0.8rem;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+}
+
+/* Improve spacing on very tall phones */
+@media (max-height: 700px) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 1rem;
+  }
+}
+
+/* Large screens (ultra-wide monitors) */
+@media (min-width: 1600px) {
+  section {
+    max-width: 1600px;
+  }
+
+  .hero-content h1 {
+    font-size: 4.2rem;
+  }
+}
+
+/* Fix nav overflow on medium screens */
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+}
+
+/* Improve form inputs on mobile */
+input, select, textarea {
+  width: 100%;
+}
+
+/* Better grid behavior for awkward widths */
+@media (max-width: 600px) {
+  .property-grid,
+  .team-grid,
+  .services-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Improve tap feel (mobile UX) */
+button:active,
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Fix lightbox image scaling on small screens */
+@media (max-width: 500px) {
+  .lightbox img {
+    max-width: 95%;
+    max-height: 75%;
+  }
+}
   </style>
 </head>
 <body>
